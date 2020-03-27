@@ -1,0 +1,8 @@
+<h1>My todos</h1>
+<p>These are all my todos: </p>
+
+<ul>
+  <% @todos.each do |todo| %>
+    <p><%= todo.name %></p>
+  <% end %>
+</ul>
