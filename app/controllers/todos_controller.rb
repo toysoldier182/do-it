@@ -2,6 +2,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :destroy, :edit]
   def index
     @todos = current_user.todos
+    @todo = Todo.new
   end
 
   def show; end
