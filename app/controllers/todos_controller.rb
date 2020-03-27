@@ -29,6 +29,10 @@ class TodosController < ApplicationController
     else
       render "edit"
     end
+    respond_to do |format|
+      format.js { render "change_color", locals: { id: @booking.id, approval: @booking.approval } }
+      format.html { redirect_to profile_path(current_user) }
+    end
   end
 
   def destroy
