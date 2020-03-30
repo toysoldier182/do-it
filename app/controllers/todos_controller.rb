@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to todos_path
     else
-      render "new"
+      render "index"
     end
   end
 

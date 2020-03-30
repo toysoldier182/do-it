@@ -1,5 +1,18 @@
- <%= simple_form_for @todo, remote: true do |f| %>
-  <%= f.input :name %>
-  <%= f.date_field :due_date %>
-  <%= f.submit %>
+ <%= simple_form_for @todo, id: "new-todo-form", remote: true do |f| %>
+  <%= f.input :name, id: "todo-name" %>
+  <%= f.date_field :due_date, id:"todo-date" %>
+  <%= f.button :submit,  id: "new-todo", class: "btn btn-primary" %>
  <% end %>
+
+
+<!--  <div class="todo-form">
+   <h2 class="new-todo-title">Add a new todo:</h2>
+   <%#= simple_form_for todo, remote: true do |f| %>
+     <%#= f.input :title, placeholder: 'Code Strike It', label: 'What is your todo\'s title?' %>
+     <%#= f.input :deadline, as: :date, html5: true, label: 'What is the deadline?' %>
+     <%#= f.hidden_field :status, value: 'pending' %>
+
+     <%#= f.submit 'Add', class: 'button-validation full-width extra-margin' %>
+   <%# end %>
+ </div>
+ -->

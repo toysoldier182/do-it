@@ -8,12 +8,12 @@
     <div class="col-md-6">
       <h1>My todos</h1>
 
-      <% if @todos.any? %>
-        <ul class="list-group list-group-flush">
+      <% if @todos&.any? %>
+        <ul class="list-group list-group-flush" id="todos-list">
           <% @todos.each do |todo| %>
             <li id="todo-<%= todo.id %>" class="list-group-item d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center">
-                <p class="p-0 m-0" contenteditable=""><%= todo.name %></p>
+                <p class="p-0 m-0" id="<%= todo.id %>"><%= todo.name %></p>
                 <% if todo.due_date.present? %>
                   <small class="bg-light text-secondary px-2 ml-2">
                     <%= todo.due_date.strftime("%B %e") %>
