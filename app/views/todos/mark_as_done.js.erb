@@ -1,0 +1,9 @@
+if(<%= done %> == true) {
+  // document.getElementById("todo-<%= id %>").classList.add('bg-success')
+  // document.getElementById('todo-<%= id %>').children[0].classList.add('white')
+  console.log(getElementById("todo-<%= id %>"))
+
+} else {
+  document.getElementById("todo-<%= id %>").classList.remove('bg-success')
+  document.getElementById('todo-<%= id %>').children[0].classList.remove('white')
+}

@@ -30,8 +30,8 @@ class TodosController < ApplicationController
       render "edit"
     end
     respond_to do |format|
-      format.js { render "change_color", locals: { id: @booking.id, approval: @booking.approval } }
-      format.html { redirect_to profile_path(current_user) }
+      format.js { render "mark_as_done", locals: { id: @todo.id, done: @todo.done } }
+      format.html { redirect_to todo_path(@todo) }
     end
   end
 
