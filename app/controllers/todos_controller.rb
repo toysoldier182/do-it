@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :destroy, :edit]
+  before_action :set_todo, only: [:show, :destroy, :update]
   def index
-    @todos = current_user.todos
+    @todos = current_user.todos.reverse
     @todo = Todo.new
   end
 
