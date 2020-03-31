@@ -8,8 +8,9 @@ class TodosController < ApplicationController
   def show; end
 
   def create
+    @todos = current_user.todos
     @todo = Todo.new(todo_params)
-    @todo.user_id = current_user.id
+    @todo.user = current_user
     if @todo.save
       redirect_to todos_path
     else

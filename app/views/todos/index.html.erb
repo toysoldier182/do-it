@@ -12,10 +12,11 @@
       <p>These are all my todos: </p>
 
       <ul>
-        <% @todos.each do |todo| %>
+        <% @todos&.each do |todo| %>
           <p><%= todo.name %></p>
         <% end %>
       </ul>
+
     </div>
   </div>
 </div>
