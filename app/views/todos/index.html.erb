@@ -1,9 +1,10 @@
 <div class="container">
-  <div class="row mt-4">
-    <div class="col-6">
+  <div class="row mt-4 justify-content-center">
+    <div class="col-4 mt-4">
+      <h2>Add new todo</h2>
       <%= render "new" %>
     </div>
-    <div class="col-6">
+    <div class="col-6 ml-4 mt-4">
       <h1>My todos</h1>
       <% if @todos&.any? %>
         <ul class="list-group list-group-flush" id="todos-list">
