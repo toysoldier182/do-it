@@ -1,5 +1,7 @@
 <%= simple_form_for @todo, remote: true do |f| %>
- <%= f.input :name %>
+ <%= f.input :name, placeholder: 'File taxes', label: "What\'s your new to-do?" %>
+ <%= f.label :due_date %>
  <%= f.date_field :due_date %>
  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
