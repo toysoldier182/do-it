@@ -36,8 +36,8 @@
                         <% elsif todo.done %>
                           <%= simple_form_for todo, remote: true, method: :patch, url: todo_path(todo) do |f| %>
                             <%= f.hidden_field :done, value: false %>
-                            <%= button_tag type: 'submit', class: "badge badge-warning badge-pill text-white" do %>
-                                <span>Undo</span>
+                            <%= button_tag type: 'submit', class: "badge badge-success badge-pill text-white" do %>
+                                <span>Done</span>
                             <% end %>
                           <% end %>
                         <% end %>
