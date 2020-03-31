@@ -1,55 +1,56 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6">
+  <div class="row mt-4 justify-content-center">
+    <div class="col-4 mt-4">
+      <h2>Add new todo</h2>
       <%= render "new" %>
     </div>
-    <div class="col-6">
+    <div class="col-6 ml-4 mt-4">
       <h1>My todos</h1>
       <% if @todos&.any? %>
-              <ul class="list-group list-group-flush" id="todos-list">
-                <% @todos.each do |todo| %>
-                  <li id="todo-<%= todo.id %>" class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
-                      <p class="p-0 m-0" id="<%= todo.id %>"><%= todo.name %></p>
-                      <% if todo.due_date.present? %>
-                        <small class="bg-light text-secondary px-2 ml-2">
-                          <%= todo.due_date.strftime("%B %e") %>
-                        </small>
-                      <% end %>
-                    </div>
-
-                    <div class="d-flex align-items-center">
-                      <span class="pr-2">
-                        <%= link_to  todo_path(todo), method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
-                          <i class="far fa-trash-alt"></i>
-                        <% end %>
-                      </span>
-
-                      <span>
-                        <% if !todo.done %>
-                          <%= simple_form_for todo, remote: true, method: :patch, url: todo_path(todo) do |f| %>
-                            <%= f.hidden_field :done, value: true %>
-                            <%= button_tag type: 'submit', class: "badge badge-primary badge-pill text-white" do %>
-                                Mark as done
-                            <% end %>
-                          <% end %>
-                        <% elsif todo.done %>
-                          <%= simple_form_for todo, remote: true, method: :patch, url: todo_path(todo) do |f| %>
-                            <%= f.hidden_field :done, value: false %>
-                            <%= button_tag type: 'submit', class: "badge badge-success badge-pill text-white" do %>
-                                <span>Done</span>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </span>
-                    </div>
-                  </li>
+        <ul class="list-group list-group-flush" id="todos-list">
+          <% @todos.each do |todo| %>
+            <li id="todo-<%= todo.id %>" class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <p class="p-0 m-0" id="<%= todo.id %>"><%= todo.name %></p>
+                <% if todo.due_date.present? %>
+                  <small class="bg-light text-secondary px-2 ml-2">
+                    <%= todo.due_date.strftime("%B %e") %>
+                  </small>
                 <% end %>
-            <% else %>
-              <p class="pl-2">Add your first to-do!</p>
-              <% end %>
-            </ul>
-          </div>
+              </div>
+
+              <div class="d-flex align-items-center">
+                <span class="pr-2">
+                  <%= link_to  todo_path(todo), method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </span>
+
+                <span>
+                  <% if !todo.done %>
+                    <%= simple_form_for todo, remote: true, method: :patch, url: todo_path(todo) do |f| %>
+                      <%= f.hidden_field :done, value: true %>
+                      <%= button_tag type: 'submit', class: "badge badge-primary badge-pill text-white" do %>
+                          Mark as done
+                      <% end %>
+                    <% end %>
+                  <% elsif todo.done %>
+                    <%= simple_form_for todo, remote: true, method: :patch, url: todo_path(todo) do |f| %>
+                      <%= f.hidden_field :done, value: false %>
+                      <%= button_tag type: 'submit', class: "badge badge-success badge-pill text-white" do %>
+                          <span>Done</span>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </span>
+              </div>
+            </li>
+          <% end %>
+      <% else %>
+        <p class="pl-2">Add your first to-do!</p>
+        </ul>
+      <% end %>
+    </div>
 
 
 
